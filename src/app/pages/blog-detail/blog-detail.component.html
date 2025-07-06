@@ -1,0 +1,31 @@
+<div class="container py-4" *ngIf="blog">
+    <h2>{{ blog.title }}</h2>
+    <p><strong>Subject:</strong> {{ blog.subject }}</p>
+    <p><strong>Topic:</strong> {{ blog.topic }}</p>
+    <p><strong>Estimated Time:</strong> {{ blog.estimatedTimeInMinutes }} minutes</p>
+  
+    <div class="my-3">
+      <h5>Content</h5>
+      <p>{{ blog.content }}</p>
+    </div>
+  
+    <div *ngIf="blog.codeSnippet">
+      <h5>Code Snippet</h5>
+      <pre><code class="language-js">{{ blog.codeSnippet }}</code></pre>
+    </div>
+  
+    <div *ngIf="blog.youTubeLink">
+      <h5>Video</h5>
+      <iframe width="100%" height="315" [src]="getSafeUrl(blog.youTubeLink)" frameborder="0" allowfullscreen></iframe>
+    </div>
+  
+    <div *ngIf="blog.usefulLinks?.length">
+      <h5>Useful Links</h5>
+      <ul>
+        <li *ngFor="let link of blog.usefulLinks">
+          <a [href]="link" target="_blank">{{ link }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  

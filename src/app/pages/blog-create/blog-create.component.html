@@ -1,0 +1,61 @@
+<div class="container py-4">
+    <h3>Create New Blog</h3>
+  
+    <div class="mb-3">
+      <label>Title</label>
+      <input [(ngModel)]="blog.title" class="form-control" />
+    </div>
+  
+    <div class="mb-3">
+      <label>Subject</label>
+      <input [(ngModel)]="blog.subject" class="form-control" />
+    </div>
+  
+    <div class="mb-3">
+      <label>Topic</label>
+      <input [(ngModel)]="blog.topic" class="form-control" />
+    </div>
+  
+    <div class="mb-3">
+      <label>Estimated Time (minutes)</label>
+      <input type="number" [(ngModel)]="blog.estimatedTimeInMinutes" class="form-control" />
+    </div>
+  
+    <div class="mb-3">
+      <label>Content</label>
+      <textarea [(ngModel)]="blog.content" class="form-control" rows="5"></textarea>
+    </div>
+  
+    <div class="mb-3">
+      <label>Code Snippet</label>
+      <textarea [(ngModel)]="blog.codeSnippet" class="form-control" rows="4"></textarea>
+    </div>
+  
+    <div class="mb-3">
+      <label>YouTube Link</label>
+      <input [(ngModel)]="blog.youTubeLink" class="form-control" />
+    </div>
+  
+    <div class="mb-3">
+      <label>Add Useful Link</label>
+      <input [(ngModel)]="newLink" class="form-control" placeholder="Enter link" />
+      <button class="btn btn-sm btn-secondary mt-1" (click)="addUsefulLink()">Add</button>
+  
+      <ul>
+        <li *ngFor="let link of blog.usefulLinks">{{ link }}</li>
+      </ul>
+    </div>
+  
+    <div class="mb-3">
+      <label>Add Tag</label>
+      <input [(ngModel)]="newTag" class="form-control" placeholder="Enter tag" />
+      <button class="btn btn-sm btn-secondary mt-1" (click)="addTag()">Add</button>
+  
+      <ul>
+        <li *ngFor="let tag of blog.tags">{{ tag }}</li>
+      </ul>
+    </div>
+  
+    <button class="btn btn-primary" (click)="submit()">Submit Blog</button>
+  </div>
+  

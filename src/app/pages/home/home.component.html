@@ -1,0 +1,16 @@
+<h1>Home Component Working</h1>
+<div class="container py-4">
+    <div class="mb-4">
+      <input [(ngModel)]="searchText" class="form-control" placeholder="Search blog..." />
+      <button class="btn btn-primary mt-2" (click)="onSearch()">Search</button>
+    </div>
+  
+    <div *ngIf="blogs.length; else noResults">
+      <app-blog-card *ngFor="let blog of blogs" [blog]="blog"></app-blog-card>
+    </div>
+  
+    <ng-template #noResults>
+      <p>No blogs found.</p>
+    </ng-template>
+  </div>
+  
