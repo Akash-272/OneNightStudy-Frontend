@@ -43,9 +43,6 @@ export class BlogCreateComponent {
     }
   }
 
-  removeUsefulLink(index: number) {
-    this.blog.usefulLinks.splice(index, 1);
-  }
 
   removeUsefulLink(index: number) {
     this.blog.usefulLinks.splice(index, 1);
@@ -57,9 +54,6 @@ export class BlogCreateComponent {
     }
   }
 
-  removeTag(index: number) {
-    this.blog.tags.splice(index, 1);
-  }
 
   removeTag(index: number) {
     this.blog.tags.splice(index, 1);
