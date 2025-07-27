@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { BlogPost } from '../../models/blog.model';
 import { environment } from '../../../environments/environment.development';
 
@@ -21,7 +22,14 @@ export class BlogService {
   }
 
   searchBlogs(query: string): Observable<BlogPost[]> {
-    return this.http.get<BlogPost[]>(`${this.baseUrl}/search?q=${query}`);
+    return this.http.get<BlogPost[]>(`${this.baseUrl}/search?q=${query}`)
+      .pipe(
+        catchError(error => {
+          console.error('Search error:', error);
+          // Return empty array if search fails
+          return of([]);
+        })
+      );
   }
 
   createBlog(blog: BlogPost): Observable<any> {
