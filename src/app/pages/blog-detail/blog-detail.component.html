@@ -1,31 +1,159 @@
 <div class="container py-4" *ngIf="blog">
-    <h2>{{ blog.title }}</h2>
-    <p><strong>Subject:</strong> {{ blog.subject }}</p>
-    <p><strong>Topic:</strong> {{ blog.topic }}</p>
-    <p><strong>Estimated Time:</strong> {{ blog.estimatedTimeInMinutes }} minutes</p>
-  
-    <div class="my-3">
-      <h5>Content</h5>
-      <p>{{ blog.content }}</p>
+  <!-- Header -->
+  <div class="text-center mb-4">
+    <div class="icon-bg-pink">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+        <polyline points="14,2 14,8 20,8"/>
+        <line x1="16" y1="13" x2="8" y2="13"/>
+        <line x1="16" y1="17" x2="8" y2="17"/>
+      </svg>
     </div>
-  
-    <div *ngIf="blog.codeSnippet">
-      <h5>Code Snippet</h5>
-      <pre><code class="language-js">{{ blog.codeSnippet }}</code></pre>
-    </div>
-  
-    <div *ngIf="blog.youTubeLink">
-      <h5>Video</h5>
-      <iframe width="100%" height="315" [src]="getSafeUrl(blog.youTubeLink)" frameborder="0" allowfullscreen></iframe>
-    </div>
-  
-    <div *ngIf="blog.usefulLinks?.length">
-      <h5>Useful Links</h5>
-      <ul>
-        <li *ngFor="let link of blog.usefulLinks">
-          <a [href]="link" target="_blank">{{ link }}</a>
-        </li>
-      </ul>
+    <h1>{{ blog.title }}</h1>
+  </div>
+
+  <!-- Blog Meta Info -->
+  <div class="blog-meta mb-4">
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <div class="meta-card">
+          <div class="icon-bg-yellow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <h5>Subject</h5>
+          <p>{{ blog.subject }}</p>
+        </div>
+      </div>
+      
+      <div class="col-md-4 mb-3">
+        <div class="meta-card">
+          <div class="icon-bg-beige">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 11H1v3h8v3l3-4-3-4v2zM22 12l-4-4v2h-8v4h8v2l4-4z"/>
+            </svg>
+          </div>
+          <h5>Topic</h5>
+          <p>{{ blog.topic }}</p>
+        </div>
+      </div>
+      
+      <div class="col-md-4 mb-3">
+        <div class="meta-card">
+          <div class="icon-bg-pink">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12,6 12,12 16,14"/>
+            </svg>
+          </div>
+          <h5>Study Time</h5>
+          <p>{{ blog.estimatedTimeInMinutes }} minutes</p>
+        </div>
+      </div>
     </div>
   </div>
-  
+
+  <!-- Content Section -->
+  <div class="content-section mb-4">
+    <div class="section-header">
+      <div class="icon-bg-yellow">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14,2 14,8 20,8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+        </svg>
+      </div>
+      <h3>Content</h3>
+    </div>
+    <div class="content-card">
+      <p>{{ blog.content }}</p>
+    </div>
+  </div>
+
+  <!-- Code Snippet Section -->
+  <div *ngIf="blog.codeSnippet" class="content-section mb-4">
+    <div class="section-header">
+      <div class="icon-bg-beige">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="16,18 22,12 16,6"/>
+          <polyline points="8,6 2,12 8,18"/>
+        </svg>
+      </div>
+      <h3>Code Example</h3>
+    </div>
+    <div class="code-card">
+      <pre><code class="language-js">{{ blog.codeSnippet }}</code></pre>
+    </div>
+  </div>
+
+  <!-- Video Section -->
+  <div *ngIf="blog.youTubeLink" class="content-section mb-4">
+    <div class="section-header">
+      <div class="icon-bg-pink">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="23,7 16,12 23,17"/>
+          <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+        </svg>
+      </div>
+      <h3>Video Tutorial</h3>
+    </div>
+    <div class="video-card">
+      <iframe width="100%" height="400" [src]="getSafeUrl(blog.youTubeLink)" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- Useful Links Section -->
+  <div *ngIf="blog.usefulLinks?.length" class="content-section mb-4">
+    <div class="section-header">
+      <div class="icon-bg-yellow">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+        </svg>
+      </div>
+      <h3>Useful Resources</h3>
+    </div>
+    <div class="links-card">
+      <div class="links-grid">
+        <a *ngFor="let link of blog.usefulLinks" [href]="link" target="_blank" class="link-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15,3 21,3 21,9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+          {{ link }}
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tags Section -->
+  <div *ngIf="blog.tags?.length" class="content-section mb-4">
+    <div class="section-header">
+      <div class="icon-bg-beige">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+          <line x1="7" y1="7" x2="7.01" y2="7"/>
+        </svg>
+      </div>
+      <h3>Tags</h3>
+    </div>
+    <div class="tags-card">
+      <div class="tags-container">
+        <span *ngFor="let tag of blog.tags" class="tag-item">{{ tag }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back Button -->
+  <div class="text-center">
+    <a routerLink="/" class="btn btn-secondary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+        <polyline points="15,18 9,12 15,6"/>
+      </svg>
+      Back to Home
+    </a>
+  </div>
+</div>

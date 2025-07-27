@@ -4,13 +4,15 @@ import { BlogService } from '../../core/services/blog.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BlogCardComponent } from '../../shared/blog-card/blog-card.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   imports: [
     CommonModule, 
     FormsModule,
-    BlogCardComponent
+    BlogCardComponent,
+    RouterModule
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

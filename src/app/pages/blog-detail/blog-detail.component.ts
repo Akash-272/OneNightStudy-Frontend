@@ -4,11 +4,13 @@ import { ActivatedRoute } from '@angular/router';
 import { BlogService } from '../../core/services/blog.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-blog-detail',
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   templateUrl: './blog-detail.component.html',
   styleUrl: './blog-detail.component.scss'

@@ -1,0 +1,128 @@
+.blog-meta {
+  .meta-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 0 var(--shadow-color);
+    height: 100%;
+    transition: all 0.3s ease;
+  }
+  
+  .meta-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 var(--shadow-color);
+  }
+  
+  .meta-card h5 {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  .meta-card p {
+    margin: 0;
+    font-weight: 600;
+    color: var(--text-light);
+  }
+}
+
+.content-section {
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .section-header h3 {
+    margin: 0;
+  }
+}
+
+.content-card, .code-card, .video-card, .links-card, .tags-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: 0 6px 0 var(--shadow-color);
+  transition: all 0.3s ease;
+}
+
+.content-card:hover, .code-card:hover, .video-card:hover, .links-card:hover, .tags-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 var(--shadow-color);
+}
+
+.code-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.code-card pre {
+  margin: 0;
+  border-radius: var(--border-radius);
+}
+
+.video-card {
+  padding: 1rem;
+}
+
+.video-card iframe {
+  border-radius: var(--border-radius-sm);
+}
+
+.links-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.link-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--accent-beige);
+  border-radius: var(--border-radius-sm);
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  word-break: break-all;
+}
+
+.link-item:hover {
+  background: var(--accent-yellow);
+  transform: translateX(4px);
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.tag-item {
+  background: var(--accent-pink);
+  color: var(--text-dark);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-sm);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+  .section-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .content-card, .code-card, .video-card, .links-card, .tags-card {
+    padding: 1.5rem;
+  }
+  
+  .video-card iframe {
+    height: 250px;
+  }
+}
