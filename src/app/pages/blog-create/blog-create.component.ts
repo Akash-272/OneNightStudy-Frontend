@@ -61,7 +61,7 @@ export class BlogCreateComponent {
   submit() {
     this.blogService.createBlog(this.blog).subscribe(() => {
       alert('Blog created successfully!');
-      this.router.navigate(['/']);
+      this.router.navigate(['/home']);
     });
   }
 }

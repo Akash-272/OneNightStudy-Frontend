@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -25,6 +25,8 @@ export class SignupComponent {
   isLoading = false;
   passwordsMatch = true;
 
+  constructor(private router: Router) {}
+
   onSignup() {
     // Check if passwords match
     this.passwordsMatch = this.signupData.password === this.signupData.confirmPassword;
@@ -40,7 +42,8 @@ export class SignupComponent {
     // Simulate API call
     setTimeout(() => {
       this.isLoading = false;
-      // Handle signup success/error
+      // Navigate to home page on successful signup
+      this.router.navigate(['/home']);
     }, 1000);
   }
 

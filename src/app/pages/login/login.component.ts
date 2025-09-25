@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -21,6 +21,8 @@ export class LoginComponent {
 
   isLoading = false;
 
+  constructor(private router: Router) {}
+
   onLogin() {
     this.isLoading = true;
     // TODO: Implement login logic
@@ -29,7 +31,8 @@ export class LoginComponent {
     // Simulate API call
     setTimeout(() => {
       this.isLoading = false;
-      // Handle login success/error
+      // Navigate to home page on successful login
+      this.router.navigate(['/home']);
     }, 1000);
   }
 }
