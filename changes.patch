@@ -1,0 +1,35 @@
+diff --git a/src/app/app.routes.ts b/src/app/app.routes.ts
+index 1234567..abcdefg 100644
+--- a/src/app/app.routes.ts
++++ b/src/app/app.routes.ts
+@@ -1,7 +1,7 @@
+ import { Routes } from '@angular/router';
+ 
+ export const routes: Routes = [
+-    { path: '', redirectTo: '/login', pathMatch: 'full' },
++    { path: '', redirectTo: '/login', pathMatch: 'full' },
+     { path: 'home', loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent) },
+     { path: 'blog/:id', loadComponent: () => import('./pages/blog-detail/blog-detail.component').then(m => m.BlogDetailComponent) },
+     { path: 'create',loadComponent: () => import('./pages/blog-create/blog-create.component').then(m => m.BlogCreateComponent) },
+
+diff --git a/src/environments/environment.ts b/src/environments/environment.ts
+index 1234567..abcdefg 100644
+--- a/src/environments/environment.ts
++++ b/src/environments/environment.ts
+@@ -1,4 +1,4 @@
+ export const environment = {
+     production: false,
+-    apiBaseUrl: '/api'
++    apiBaseUrl: '/api'
+   };
+
+diff --git a/src/environments/environment.development.ts b/src/environments/environment.development.ts
+index 1234567..abcdefg 100644
+--- a/src/environments/environment.development.ts
++++ b/src/environments/environment.development.ts
+@@ -1,5 +1,5 @@
+ export const environment = {
+     production: false,
+-    apiBaseUrl: '/api'
++    apiBaseUrl: '/api'
+ };
