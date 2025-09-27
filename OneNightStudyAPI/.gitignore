@@ -1,0 +1,49 @@
+# ------------------------------
+# Build & compiler artifacts
+# ------------------------------
+OneNightStudy/bin/
+OneNightStudy/obj/
+
+# ------------------------------
+# User-specific files (IDE)
+# ------------------------------
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio working folder
+.vs/
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+# ReSharper
+_ReSharper*/
+*.DotSettings.user
+
+# ------------------------------
+# Logs
+# ------------------------------
+*.log
+OneNightStudy/Logs/
+
+# ------------------------------
+# Publish output
+# ------------------------------
+OneNightStudy/publish/
+OneNightStudy/out/
+
+# ------------------------------
+# Environment & secrets
+# ------------------------------
+*.env
+OneNightStudy/appsettings.Development.json
+OneNightStudy/appsettings.*.json
+
+# ------------------------------
+# Misc
+# ------------------------------
+# Scratch HTTP files
+*.http

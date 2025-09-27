@@ -1,0 +1,15 @@
+﻿namespace OneNightStudyAPI.DTOs
+{
+    public class BlogPostDTO
+    {
+        public string Title { get; set; }
+        public string Subject { get; set; }
+        public string Topic { get; set; }
+        public int EstimatedTimeInMinutes { get; set; }
+        public string Content { get; set; }
+        public string CodeSnippet { get; set; }
+        public string YouTubeLink { get; set; }
+        public List<string> UsefulLinks { get; set; }
+        public List<string> Tags { get; set; }
+    }
+}
